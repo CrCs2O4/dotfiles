@@ -54,8 +54,6 @@ add_to_path_end "$HOME/.gem/ruby/2.0.0/bin"
 add_to_path_end "$HOME/.gem/ruby/1.8/bin"
 add_to_path_end "$HOME/.rbenv/bin"
 add_to_path_end "$HOME/.cabal/bin"
-add_to_path_end "$HOME/Applications/SublimeText2"
-add_to_path_end "/c/Program Files/Sublime Text 2"
 add_to_path_end "/Applications/GitX.app/Contents/Resources"
 add_to_path_end "/Applications/TextMate.app/Contents/Resources"
 add_to_path_end "/Applications/GitHub.app/Contents/MacOS"
@@ -136,7 +134,7 @@ if [ $OSX ]
 then
   export GREP_OPTIONS="--color=auto"
   export CLICOLOR=1
-  export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
+  # export VAGRANT_DEFAULT_PROVIDER="vmware_fusion"
   if quiet_which diff-highlight
   then
     export GIT_PAGER='diff-highlight | less -+$LESS -RX'
