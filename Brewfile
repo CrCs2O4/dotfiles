@@ -1,11 +1,11 @@
 tap 'caskroom/cask'
+tap 'caskroom/versions'
 tap 'github/bootstrap'
 tap 'homebrew/bundle'
 tap 'homebrew/core'
 tap 'homebrew/services'
 tap 'homebrew/versions'
 tap 'homebrew/dupes'
-cask 'java'
 brew 'ack'
 brew 'autoconf'
 brew 'cmake'
@@ -120,7 +120,7 @@ cask 'raw-photo-processor'
 # pdf notes export
 cask 'skim'
 cask 'sequel-pro'
-cask 'sublime-text-dev'
+cask 'sublime-text'
 cask 'telegram-desktop-dev'
 # vpn manager
 cask 'tunnelblick'
@@ -140,8 +140,6 @@ cask 'subler'
 cask 'textexpander'
 # cask 'textmate'
 cask 'transmission'
-cask 'vagrant'
-cask 'virtualbox'
 cask 'webtorrent'
 cask 'clipmenu'
 cask 'dropbox'
@@ -150,20 +148,16 @@ cask 'google-drive'
 # cask 'vmware-fusion'
 # cask 'zoomus'
 # mas 'Remote Desktop (3.8)', id: 409907375
-mas 'Xcode (8.0)', id: 497799835
-mas 'Keynote (7.0)', id: 409183694
-mas 'Mactracker (7.5.6)', id: 430255202
+mas 'Mactracker', id: 430255202
 # mas 'Booster (1.2.0)', id: 907023335
 # mas '1Password (6.3.3)', id: 443987910
 # mas 'iMovie (10.1.2)', id: 408981434
 # mas 'OneDrive (17.3.6517)', id: 823766827
 # mas 'Sketch (2.4.4)', id: 402476602
-mas 'Slack (2.0.3)', id: 803453959
-mas 'Pages (6.0)', id: 409201541
+mas 'Slack', id: 803453959
 # mas 'Pixelmator (3.5.1)', id: 407963104
 # mas 'Reeder (3.0.1)', id: 880001334
 # mas 'Textual (6.0.1)', id: 896450579
-mas 'Numbers (4.0)', id: 409203825
 
 mas 'Yandex.Disk (1.4.10)', id: 560459030
 mas 'ArcSoft Photo+ (3.0.90138)', id: 628703558
@@ -176,3 +170,11 @@ mas 'Telephone (1.2.1)', id: 406825478
 mas 'Pixlr (1.1.1)', id: 880663569
 mas 'Debit & Credit (2.0.1)', id: 882637653
 mas 'Tumblr (1.0.1)', id: 929285034
+# biggest apps
+cask 'java'
+cask 'virtualbox'
+cask 'vagrant'
+mas 'Numbers (4.0)', id: 409203825
+mas 'Pages (6.0)', id: 409201541
+mas 'Keynote (7.0)', id: 409183694
+mas 'Xcode (8.0)', id: 497799835
