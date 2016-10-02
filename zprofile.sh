@@ -73,3 +73,39 @@ bindkey -e
 # alternate mappings for Ctrl-U/V to search the history
 bindkey "^u" history-beginning-search-backward
 bindkey "^v" history-beginning-search-forward
+
+
+# zplug "plugins/brew", from:oh-my-zsh, nice:10
+# zplug "plugins/brew-cask", from:oh-my-zsh, nice:10
+zplug "plugins/command-not-found", from:oh-my-zsh
+# zplug "plugins/docker", from:oh-my-zsh
+zplug "plugins/autojump", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh, nice:10
+zplug "plugins/osx", from:oh-my-zsh, nice:10
+zplug "plugins/npm", from:oh-my-zsh
+zplug "lukechilds/zsh-nvm"
+zplug "zsh-users/zsh-autosuggestions", nice:10
+zplug "zsh-users/zsh-syntax-highlighting", nice:18
+zplug "lib/history", from:oh-my-zsh
+zplug "zsh-users/zsh-history-substring-search", nice:19
+
+# Theme.
+setopt prompt_subst # Make sure propt is able to be generated properly.
+zplug "caiogondim/bullet-train-oh-my-zsh-theme", use:bullet-train.zsh-theme
+# zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+# # Theme config
+# POWERLEVEL9K_MODE='awesome-patched'
+# POWERLEVEL9K_SHORTEN_DIR_LENGTH=3
+# POWERLEVEL9K_SHORTEN_STRATEGY="truncate_middle"
+# POWERLEVEL9K_STATUS_VERBOSE=false
+# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status os_icon load dir vcs)
+# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(time)
+# POWERLEVEL9K_SHOW_CHANGESET=true
+# POWERLEVEL9K_CHANGESET_HASH_LENGTH=6
+
+# Install plugins if there are plugins that have not been installed
+if ! zplug check; then
+  zplug install
+fi
+# Then, source plugins and add commands to $PATH
+zplug load

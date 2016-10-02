@@ -16,5 +16,3 @@ setopt share_history
 
 # Don't hang up background jobs
 setopt no_hup
-
-#test
