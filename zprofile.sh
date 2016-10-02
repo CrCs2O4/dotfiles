@@ -74,6 +74,10 @@ bindkey -e
 bindkey "^u" history-beginning-search-backward
 bindkey "^v" history-beginning-search-forward
 
+export TERM="xterm-256color"
+
+export ZPLUG_HOME=/usr/local/opt/zplug
+source $ZPLUG_HOME/init.zsh
 
 # zplug "plugins/brew", from:oh-my-zsh, nice:10
 # zplug "plugins/brew-cask", from:oh-my-zsh, nice:10

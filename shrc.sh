@@ -85,6 +85,176 @@ alias sha256="shasum -a 256"
 alias ack="ag"
 alias z="zeus"
 alias zt="zeus test"
+# Enable color support
+ls --color -d . &> /dev/null && alias ls='ls --color=auto' || alias ls='ls -G'
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# clean trash
+alias trash='rm -rf ~/.Trash && sudo rm -rf /Volumes/*/.Trashes'
+
+alias subl="open -a 'Sublime Text'"
+
+alias c="clear" # Typing the whole word is annoying
+alias h="cd ~/" # Go home
+# alias bru='brew update; brew upgrade; brew cleanup; brew doctor'
+alias bru='brew -v update; brew -v upgrade --all; brew cleanup; brew cask cleanup; brew -v prune; brew doctor'
+
+# vagrant
+alias v='vagrant version && vagrant global-status'
+alias vst='vagrant status'
+alias vup='vagrant up'
+alias vdo='vagrant halt'
+alias vssh='vagrant ssh'
+alias vkill='vagrant destroy'
+
+# vip-quickstart
+# alias vip='function __vip() { (cd ~/Documents/vip-quickstart/ && vagrant $*); unset -f __vip; }; __vip'
+# alias vipup='appcatalyst-daemon start & vip reload'
+
+# alias rbp='cat ~/.mackup/dotrbp | osascript'
+# alias rsp='cat ~/.mackup/dotrsp | osascript'
+# alias rqp='killall osascript'
+# alias rwp='ps auxw | grep osascript'
+# alias ral='rqp && rbp & rsp & clear'
+# alias rbo='rqp && rbp & clear'
+
+# get application bundle identifier using duti
+app_id () {
+    APPS=`find /Applications -maxdepth 1 -type d -iname "*$1*"`
+    APP=`find /Applications -maxdepth 1 -type d -iname "*$1*" | head -n1`
+    if [ "$APP" != "$APPS" ]
+    then
+        # found couple apps
+        find /Applications -maxdepth 1 -type d -iname "*$1*" -print0 | while IFS= read -r -d $'\0' APP; do
+            PLIST=$APP/Contents/Info.plist
+            ID=`/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' $PLIST`
+            echo "$APP => $ID"
+        done
+    else
+        # found one app
+        PLIST=$APP/Contents/Info.plist
+        if [ -f $PLIST ]; then
+            /usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' $PLIST
+        else
+            echo "Sorry, app $1 not found!"
+        fi
+    fi
+}
+
+app_show () {
+    if [ "$1" != "" ]
+    then
+        echo "$1 files are opening with this app:\n"
+        duti -x $1
+    fi
+}
+
+app_set () {
+    if [ "$1" != "" ] && [ "$2" != "" ]; then
+        app_show $1
+        APP_ID=`app_id $2`
+        # app not found
+        if [[ $APP_ID == *"not found"* ]]
+        then
+            # show error message from app_id
+            echo "\n$APP_ID"
+        else
+            # found couple apps
+            if [[ $APP_ID == *"=>"* ]]
+            then
+                echo "\nFound couple apps, please clarify request and choose one:\n\n$APP_ID"
+            else
+                echo "\nSetting app $2 for opening all $1 files\n"
+                duti -s $APP_ID $1 all
+                app_show $1
+            fi
+        fi
+    else
+        echo "usage:\tapp_set extention application\n\tapp_set md MacDown\n\tapp_set public.source-code sublime"
+    fi
+}
+
+# rails
+alias r='rails'
+alias rt='be rubocop -a && be brakeman && be rspec && be rails test'
+alias rdb='be rails db:migrate && be rails db:migrate RAILS_ENV=test'
+rc () { git add . && git commit -m $1 && git push }
+function rls() {
+    if [ "$1" != "" ]
+    then
+        lsof -i tcp:$1
+    else
+        lsof -i tcp:3000
+    fi
+}
+
+function rlk() {
+    if [ "$1" != "" ]
+    then
+        kill -9 $(lsof -ti tcp:$1)
+    else
+        kill -9 $(lsof -ti tcp:3000)
+    fi
+}
+
+# Some more basic aliases
+alias ll='ls -lh'
+alias la='ls -lAh'
+alias l='ls -lah'
+alias md='mkdir -p'
+alias rd='rmdir'
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
+alias cd.....='cd ../../../..'
+alias cd......='cd ../../../../..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
+alias ......='cd ../../../../..'
+
+# Bundler
+alias be='bundle exec'
+alias bi='bundle_install'
+alias bu='bundle update'
+
+# Git
+alias git='noglob git'
+alias g='git'
+alias ga='git add'
+alias gapa='git add --patch'
+alias gb='git branch'
+alias gc='git commit -v'
+alias gc!='git commit -v --amend'
+alias gca='git commit -v -a'
+alias gca!='git commit -v -a --amend'
+alias gcb='git checkout -b'
+alias gcm='git checkout master'
+alias gco='git checkout'
+alias gcp='git cherry-pick'
+alias gd='git diff'
+alias gdca='git diff --cached'
+alias gf='git fetch'
+alias ggpush='git push origin HEAD'
+alias gl='git pull'
+alias glg='git log --graph --pretty=format:"%C(yellow)%h %C(blue)%ar %C(green)%an%C(reset) %s%C(auto)%d"'
+alias glga='git log --graph --pretty=format:"%C(yellow)%h %C(blue)%ar %C(green)%an%C(reset) %s%C(auto)%d" --all'
+alias glgg='git log --graph --decorate'
+alias glgga='git log --graph --decorate --all'
+alias gp='git push'
+alias gr='git remote'
+alias gra='git remote add'
+alias grb='git rebase'
+alias grba='git rebase --abort'
+alias grbc='git rebase --continue'
+alias grbi='git rebase -i'
+alias grup='git remote update'
+alias gst='git status'
+alias gsta='git stash'
+alias gstd='git stash drop'
+alias gstp='git stash pop'
 
 # Platform-specific stuff
 if quiet_which brew
