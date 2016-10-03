@@ -97,6 +97,14 @@ alias trash='rm -rf ~/.Trash && sudo rm -rf /Volumes/*/.Trashes'
 alias als='subl ~/.dotfiles/shrc.sh'
 alias subl="open -a 'Sublime Text'"
 
+app_restart () {
+    if [ "$1" != "" ]
+    then
+      kill `pgrep $1`; open -a "$1"
+      # osascript -e 'quit app "$1"'; open -a "$1"
+    fi
+}
+
 alias c="clear" # Typing the whole word is annoying
 alias h="cd ~/" # Go home
 # alias bru='brew update; brew upgrade; brew cleanup; brew doctor'
