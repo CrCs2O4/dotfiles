@@ -94,6 +94,7 @@ alias egrep='egrep --color=auto'
 # clean trash
 alias trash='rm -rf ~/.Trash && sudo rm -rf /Volumes/*/.Trashes'
 
+alias als='subl ~/.dotfiles/shrc.sh'
 alias subl="open -a 'Sublime Text'"
 
 alias c="clear" # Typing the whole word is annoying
@@ -216,8 +217,9 @@ alias .....='cd ../../../..'
 alias ......='cd ../../../../..'
 
 # Bundler
+alias b='bundle'
 alias be='bundle exec'
-alias bi='bundle_install'
+alias bi='bundle install'
 alias bu='bundle update'
 
 # Git
@@ -375,14 +377,14 @@ quiet_which dircolors && eval $(dircolors -b)
 # More colours with grc
 [ -f "$BREW_PREFIX/etc/grc.bashrc" ] && source "$BREW_PREFIX/etc/grc.bashrc"
 
-# Save directory changes
-cd() {
-  builtin cd "$@" || return
-  [ $TERMINALAPP ] && which set_terminal_app_pwd &>/dev/null \
-    && set_terminal_app_pwd
-  pwd > "$HOME/.lastpwd"
-  ls
-}
+# Save directory changes (opens new tab with last dir)
+# cd() {
+#   builtin cd "$@" || return
+#   [ $TERMINALAPP ] && which set_terminal_app_pwd &>/dev/null \
+#     && set_terminal_app_pwd
+#   pwd > "$HOME/.lastpwd"
+#   ls
+# }
 
 # Use ruby-prof to generate a call stack
 ruby-call-stack() {
