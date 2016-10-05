@@ -100,7 +100,8 @@ alias subl="open -a 'Sublime Text'"
 app_restart () {
     if [ "$1" != "" ]
     then
-      kill `pgrep $1`; open -a "$1"
+      pkill "$1"; open -a "$1"
+      # kill `pgrep $1`; open -a "$1"
       # osascript -e 'quit app "$1"'; open -a "$1"
     fi
 }
