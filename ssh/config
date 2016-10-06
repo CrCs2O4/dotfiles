@@ -10,8 +10,12 @@ Host *.github.com *.github.net *.githubapp.com
 	ForwardAgent no
 	User crcs2o4
 
-Host * !heroku.com !github.com !github.net
-	RemoteForward 52698 localhost:52698
+# Host gitlab.com
+# 	ForwardAgent yes
+# 	User crcs2o4
+
+# Host * !heroku.com !github.com !github.net
+	# RemoteForward 52698 localhost:52698
 
 Host *
 	StrictHostKeyChecking ask

@@ -109,7 +109,7 @@ app_restart () {
 alias c="clear" # Typing the whole word is annoying
 alias h="cd ~/" # Go home
 # alias bru='brew update; brew upgrade; brew cleanup; brew doctor'
-alias bru='brew -v update; brew -v upgrade --all; brew cleanup; brew cask cleanup; brew -v prune; brew doctor'
+alias bru='brew -v update; brew -v upgrade; brew cleanup; brew cask cleanup; brew -v prune; brew doctor'
 
 # vagrant
 alias v='vagrant version && vagrant global-status'
@@ -130,66 +130,12 @@ alias vkill='vagrant destroy'
 # alias ral='rqp && rbp & rsp & clear'
 # alias rbo='rqp && rbp & clear'
 
-# get application bundle identifier using duti
-app_id () {
-    APPS=`find /Applications -maxdepth 1 -type d -iname "*$1*"`
-    APP=`find /Applications -maxdepth 1 -type d -iname "*$1*" | head -n1`
-    if [ "$APP" != "$APPS" ]
-    then
-        # found couple apps
-        find /Applications -maxdepth 1 -type d -iname "*$1*" -print0 | while IFS= read -r -d $'\0' APP; do
-            PLIST=$APP/Contents/Info.plist
-            ID=`/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' $PLIST`
-            echo "$APP => $ID"
-        done
-    else
-        # found one app
-        PLIST=$APP/Contents/Info.plist
-        if [ -f $PLIST ]; then
-            /usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' $PLIST
-        else
-            echo "Sorry, app $1 not found!"
-        fi
-    fi
-}
-
-app_show () {
-    if [ "$1" != "" ]
-    then
-        echo "$1 files are opening with this app:\n"
-        duti -x $1
-    fi
-}
-
-app_set () {
-    if [ "$1" != "" ] && [ "$2" != "" ]; then
-        app_show $1
-        APP_ID=`app_id $2`
-        # app not found
-        if [[ $APP_ID == *"not found"* ]]
-        then
-            # show error message from app_id
-            echo "\n$APP_ID"
-        else
-            # found couple apps
-            if [[ $APP_ID == *"=>"* ]]
-            then
-                echo "\nFound couple apps, please clarify request and choose one:\n\n$APP_ID"
-            else
-                echo "\nSetting app $2 for opening all $1 files\n"
-                duti -s $APP_ID $1 all
-                app_show $1
-            fi
-        fi
-    else
-        echo "usage:\tapp_set extention application\n\tapp_set md MacDown\n\tapp_set public.source-code sublime"
-    fi
-}
-
 # rails
 alias r='rails'
-alias rt='be rubocop -a && be brakeman && be rspec && be rails test'
+alias rt='be rubocop -a'
+alias rta='be rubocop -a && be brakeman && be rspec && be rails test'
 alias rdb='be rails db:migrate && be rails db:migrate RAILS_ENV=test'
+alias rdp='bin/deploy'
 rc () { git add . && git commit -m $1 && git push }
 function rls() {
     if [ "$1" != "" ]
@@ -266,6 +212,62 @@ alias gst='git status'
 alias gsta='git stash'
 alias gstd='git stash drop'
 alias gstp='git stash pop'
+
+# get application bundle identifier using duti
+app_id () {
+    APPS=`find /Applications -maxdepth 1 -type d -iname "*$1*"`
+    APP=`find /Applications -maxdepth 1 -type d -iname "*$1*" | head -n1`
+    if [ "$APP" != "$APPS" ]
+    then
+        # found couple apps
+        find /Applications -maxdepth 1 -type d -iname "*$1*" -print0 | while IFS= read -r -d $'\0' APP; do
+            PLIST=$APP/Contents/Info.plist
+            ID=`/usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' $PLIST`
+            echo "$APP => $ID"
+        done
+    else
+        # found one app
+        PLIST=$APP/Contents/Info.plist
+        if [ -f $PLIST ]; then
+            /usr/libexec/PlistBuddy -c 'Print CFBundleIdentifier' $PLIST
+        else
+            echo "Sorry, app $1 not found!"
+        fi
+    fi
+}
+
+app_show () {
+    if [ "$1" != "" ]
+    then
+        echo "$1 files are opening with this app:\n"
+        duti -x $1
+    fi
+}
+
+app_set () {
+    if [ "$1" != "" ] && [ "$2" != "" ]; then
+        app_show $1
+        APP_ID=`app_id $2`
+        # app not found
+        if [[ $APP_ID == *"not found"* ]]
+        then
+            # show error message from app_id
+            echo "\n$APP_ID"
+        else
+            # found couple apps
+            if [[ $APP_ID == *"=>"* ]]
+            then
+                echo "\nFound couple apps, please clarify request and choose one:\n\n$APP_ID"
+            else
+                echo "\nSetting app $2 for opening all $1 files\n"
+                duti -s $APP_ID $1 all
+                app_show $1
+            fi
+        fi
+    else
+        echo "usage:\tapp_set extention application\n\tapp_set md MacDown\n\tapp_set public.source-code sublime"
+    fi
+}
 
 # Platform-specific stuff
 if quiet_which brew
