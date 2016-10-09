@@ -275,16 +275,16 @@ then
   export BINTRAY_USER="$(git config bintray.username)"
   export BREW_PREFIX=$(brew --prefix)
   export BREW_REPO=$(brew --repo)
-  export HOMEBREW_DEVELOPER=1
-  export HOMEBREW_ANALYTICS=1
-  export HOMEBREW_AUTO_UPDATE=1
-  export HOMEBREW_FORCE_VENDOR_RUBY=1
+  # export HOMEBREW_DEVELOPER=1
+  # export HOMEBREW_ANALYTICS=1
+  # export HOMEBREW_AUTO_UPDATE=1
+  # export HOMEBREW_FORCE_VENDOR_RUBY=1
 
   export HOMEBREW_CASK_OPTS="--appdir=/Applications"
-  if [ "$USER" = "brewadmin" ]
-  then
-    export HOMEBREW_CASK_OPTS="$HOMEBREW_CASK_OPTS --binarydir=$BREW_PREFIX/bin"
-  fi
+  # if [ "$USER" = "brewadmin" ]
+  # then
+  #   export HOMEBREW_CASK_OPTS="$HOMEBREW_CASK_OPTS --binarydir=$BREW_PREFIX/bin"
+  # fi
 
   alias hbc="cd $BREW_REPO/Library/Taps/homebrew/homebrew-core"
   alias hbv="cd $BREW_REPO/Library/Taps/homebrew/homebrew-versions"
