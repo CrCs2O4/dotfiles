@@ -179,6 +179,7 @@ mas 'Telephone (1.2.1)', id: 406825478
 mas 'Pixlr (1.1.1)', id: 880663569
 mas 'Debit & Credit (2.0.1)', id: 882637653
 mas 'Tumblr (1.0.1)', id: 929285034
+mas 'HandShaker (1.1.0)', id: 1012930195
 # biggest apps
 cask 'java'
 cask 'virtualbox'

@@ -136,6 +136,7 @@ alias rt='be rubocop -a'
 alias rta='be rubocop -a && be brakeman && be rspec && be rails test'
 alias rdb='be rails db:migrate && be rails db:migrate RAILS_ENV=test'
 alias rdp='bin/deploy'
+alias rdpa='ALL=true bundle exec mina deploy --verbose'
 rc () { git add . && git commit -m $1 && git push }
 function rls() {
     if [ "$1" != "" ]
