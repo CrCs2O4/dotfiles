@@ -126,6 +126,7 @@ cask 'skim'
 cask 'sequel-pro'
 cask 'sublime-text'
 cask 'telegram-desktop-dev'
+cask 'android-file-transfer'
 # vpn manager
 cask 'tunnelblick'
 cask 'xnviewmp'
