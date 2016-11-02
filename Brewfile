@@ -185,6 +185,7 @@ mas 'HandShaker (1.1.0)', id: 1012930195
 cask 'java'
 cask 'virtualbox'
 cask 'vagrant'
+cask 'docker'
 mas 'Numbers (4.0)', id: 409203825
 mas 'Pages (6.0)', id: 409201541
 mas 'Keynote (7.0)', id: 409183694
