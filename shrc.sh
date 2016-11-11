@@ -109,7 +109,7 @@ app_restart () {
 alias c="clear" # Typing the whole word is annoying
 alias h="cd ~/" # Go home
 # alias bru='brew update; brew upgrade; brew cleanup; brew doctor'
-alias bru='brew -v update; brew -v upgrade; brew cleanup; brew cask cleanup; brew -v prune; brew doctor'
+alias bru='brew -v update; brew -v upgrade; brew cu; brew cleanup; brew cask cleanup; brew -v prune; brew doctor'
 
 # vagrant
 alias v='vagrant version && vagrant global-status'
