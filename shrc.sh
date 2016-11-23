@@ -110,6 +110,8 @@ alias c="clear" # Typing the whole word is annoying
 alias h="cd ~/" # Go home
 # alias bru='brew update; brew upgrade; brew cleanup; brew doctor'
 alias bru='brew -v update; brew -v upgrade; brew cu; brew cleanup; brew cask cleanup; brew -v prune; brew doctor'
+# https://github.com/PurpleI2P/i2pd    webconsole http://127.0.0.1:7070/
+alias chromium-i2pd='/Applications/Chromium.app/Contents/MacOS/Chromium --proxy-server="http://127.0.0.1:4444"'
 
 # vagrant
 alias v='vagrant version && vagrant global-status'
