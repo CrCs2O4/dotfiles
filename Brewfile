@@ -47,6 +47,7 @@ brew 'wget'
 brew 'coreutils'
 brew 'python'
 brew 'node.js'
+brew 'go'
 brew 'imagemagick'
 brew 'rsync'
 brew 'svn'
@@ -115,6 +116,7 @@ cask 'keycastr'
 # video converter # constant quality 23
 cask 'handbrake'
 cask 'vlc'
+cask 'mplayerx'
 # markdown writer
 cask 'macdown'
 cask 'iterm2-beta'
@@ -190,6 +192,7 @@ cask 'java'
 cask 'virtualbox'
 cask 'vagrant'
 cask 'docker'
+cask 'kitematic'
 mas 'Numbers (4.0)', id: 409203825
 mas 'Pages (6.0)', id: 409201541
 mas 'Keynote (7.0)', id: 409183694

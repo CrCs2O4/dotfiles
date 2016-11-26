@@ -62,6 +62,10 @@ add_to_path_start "/usr/local/bin"
 add_to_path_start "/usr/local/sbin"
 add_to_path_start "$HOME/Homebrew/bin"
 add_to_path_start "$HOME/Homebrew/sbin"
+export GOROOT="/usr/local/opt/go/libexec"
+export GOPATH="$HOME/.go"
+add_to_path_end "$GOROOT/bin"
+add_to_path_end "$GOPATH/bin"
 
 # Run rbenv if it exists
 quiet_which rbenv && add_to_path_start "$(rbenv root)/shims"
