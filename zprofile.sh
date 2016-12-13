@@ -79,19 +79,20 @@ export TERM="xterm-256color"
 export ZPLUG_HOME=/usr/local/opt/zplug
 source $ZPLUG_HOME/init.zsh
 
-# zplug "plugins/brew", from:oh-my-zsh, nice:10
-# zplug "plugins/brew-cask", from:oh-my-zsh, nice:10
+# zplug "zplug/zplug"
+# zplug "plugins/brew", from:oh-my-zsh, defer:2
+# zplug "plugins/brew-cask", from:oh-my-zsh, defer:2
+zplug "zsh-users/zsh-autosuggestions"
 zplug "plugins/command-not-found", from:oh-my-zsh
-# zplug "plugins/docker", from:oh-my-zsh
 zplug "plugins/autojump", from:oh-my-zsh
-zplug "plugins/git", from:oh-my-zsh, nice:10
-zplug "plugins/osx", from:oh-my-zsh, nice:10
-zplug "plugins/npm", from:oh-my-zsh
-zplug "lukechilds/zsh-nvm"
-zplug "zsh-users/zsh-autosuggestions", nice:10
-zplug "zsh-users/zsh-syntax-highlighting", nice:18
 zplug "lib/history", from:oh-my-zsh
-zplug "zsh-users/zsh-history-substring-search", nice:19
+zplug "plugins/docker", from:oh-my-zsh
+zplug "plugins/git", from:oh-my-zsh, defer:2
+zplug "plugins/osx", from:oh-my-zsh, defer:2
+zplug "plugins/npm", from:oh-my-zsh, defer:2
+zplug "lukechilds/zsh-nvm", defer:2
+zplug "zsh-users/zsh-syntax-highlighting", defer:3
+zplug "zsh-users/zsh-history-substring-search", defer:3
 
 # Theme.
 setopt prompt_subst # Make sure propt is able to be generated properly.
@@ -112,4 +113,4 @@ if ! zplug check; then
   zplug install
 fi
 # Then, source plugins and add commands to $PATH
-zplug load
+zplug load >/dev/null
