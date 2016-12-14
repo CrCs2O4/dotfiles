@@ -146,8 +146,8 @@ cask 'quitter'
 # cask 'sizeup'
 # cask 'steam'
 # mux and tag mp4 files
-cask 'subler'
-cask 'textexpander'
+# cask 'subler'
+# cask 'textexpander'
 # cask 'textmate'
 cask 'transmission'
 cask 'utorrent'
@@ -157,8 +157,10 @@ cask 'dropbox'
 cask 'megasync'
 cask 'google-drive'
 cask 'skype'
-cask 'prey'
+# need API_KEY to install
+# cask 'prey'
 cask 'curse'
+cask 'typora'
 # cask 'callnote-premium'
 # cask 'viscosity'
 # cask 'vmware-fusion'
@@ -187,6 +189,7 @@ mas 'Pixlr (1.1.1)', id: 880663569
 mas 'Debit & Credit (2.0.1)', id: 882637653
 mas 'Tumblr (1.0.1)', id: 929285034
 mas 'HandShaker (1.1.0)', id: 1012930195
+mas 'Bear (1.0.4)', id: 1091189122
 # biggest apps
 cask 'java'
 cask 'virtualbox'
