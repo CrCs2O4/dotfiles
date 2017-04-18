@@ -1,7 +1,7 @@
 # load shared shell configuration
 source ~/.zprofile
 source ~/.shrc
-source ~/.iterm2_shell_integration
+source ~/.iterm2_shell_integration.zsh
 
 # History file
 export HISTFILE=~/.zsh_history

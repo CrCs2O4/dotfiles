@@ -1,0 +1,1 @@
+/Users/chromium/.config/fisherman/nvm/npm.fish

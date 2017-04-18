@@ -1,0 +1,1 @@
+/Users/chromium/.config/fisherman/rbenv/completions/rbenv.fish

@@ -1,0 +1,1 @@
+/Users/chromium/.config/fisherman/bass/functions/bass.fish

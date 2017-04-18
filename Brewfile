@@ -13,7 +13,7 @@ brew 'cmake'
 brew 'xz'
 brew 'pcre'
 brew 'git'
-# brew 'grc'
+brew 'grc'
 brew 'heroku'
 brew 'hub'
 # brew 'icu4c'
@@ -74,7 +74,10 @@ brew 'youtube-dl'
 # android adb & fastboot
 brew 'android-platform-tools'
 # password generator apg -M LNCS -m 12
-brew 'apg'
+# brew 'apg'  # outdated, homepage gone
+# password generator pwgen -cnyB 12
+brew 'pwgen'
+brew 'pass'
 # command-line tool to select default applications
 brew 'duti'
 # console website downloader
@@ -91,8 +94,11 @@ brew 'wrk'
 brew 'utimer'
 # terminal-notifier -message "Message" -title "Title" -contentImage '~/image.png'
 brew 'terminal-notifier'
-brew 'zsh'
-brew 'zplug'
+# brew 'zsh'
+# brew 'zplug'
+brew 'fish'
+# curl -Lo ~/.config/fish/functions/fisher.fish --create-dirs git.io/fisher
+# fisher
 # plugins for quicklook
 cask 'betterzipql'
 cask 'qlcolorcode'

@@ -33,6 +33,13 @@ for DOTFILE in *; do
     then
       ln -sfv "$DIRFILE" "$HOMEFILE"
     else
+      # for dir .config we symlink just fish config
+      if echo $HOMEFILE | grep -q '.config'
+      then
+        mkdir $HOMEFILE
+        HOMEFILE="$HOMEFILE/fish"
+        DIRFILE="$DIRFILE/fish"
+      fi
       rm -rv "$HOMEFILE"
       ln -sv "$DIRFILE" "$HOMEFILE"
     fi

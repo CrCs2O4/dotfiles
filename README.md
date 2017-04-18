@@ -1,5 +1,5 @@
 # Dot Files
-My dot files shared between machines for ZSH, Bash, OSX, Linux, Cygwin and MSYS.
+My dot files shared between machines for FISH, ZSH, Bash on OSX.
 
 ## Installation
 Customise the contents of `gitconfig-user`.
