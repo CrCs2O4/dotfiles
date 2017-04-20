@@ -10,9 +10,14 @@ Host *.github.com *.github.net *.githubapp.com
 	ForwardAgent no
 	User crcs2o4
 
-# Host gitlab.com
-# 	ForwardAgent yes
-# 	User crcs2o4
+# cd project-folder
+# git config user.name "CrCs2O4"
+# git config user.email "email@email"
+# Host github.com
+#   HostName github.com
+#   User crcs2o4
+#   PreferredAuthentications publickey
+#   IdentityFile ~/.ssh/id_rsa_crcs2o4
 
 # Host * !heroku.com !github.com !github.net
 	# RemoteForward 52698 localhost:52698
