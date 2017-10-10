@@ -1,5 +1,5 @@
 /ssh/id_rsa
-/ssh/id_rsa_deploy
+/ssh/id_rsa_*
 /ssh/known_hosts
 bundle/cache
 secrets
