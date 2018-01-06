@@ -17,6 +17,7 @@ function ll       ; tree --dirsfirst -ChFupDaLg 1 $argv ; end
 function a        ; command ag --ignore=.git --ignore=log --ignore=tags --ignore=tmp --ignore=vendor --ignore=spec/vcr $argv               ; end
 function b        ; bundle exec $argv                   ; end
 function br       ; bundle exec rspec $argv             ; end
+function brdb     ; bundle exec rake db:drop; bundle exec rake db:create; bundle exec rake db:migrate; bundle exec rake db:seed;       ; end
 # function c        ; pygmentize -O style=monokai -f console256 -g $argv  ; end
 function c        ; clear                               ; end
 function d        ; du -h -d=1 $argv                    ; end
@@ -108,7 +109,7 @@ function gstp     ; git stash pop                       ; end
 set -g fish_user_paths "/usr/local/sbin" $fish_user_paths
 
 set -x GOPATH (go env GOPATH)
-set -x PATH $PATH (go env GOPATH)/bin
+set -x PATH $PATH (go env GOPATH)/bin {$HOME}/.local/bin
 
 # bunch application functions
 function app_show ()
@@ -165,3 +166,9 @@ function app_set ()
 end
 
 test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish
+
+# set -u fish_user_paths (brew --prefix)/miniconda3/bin $fish_user_paths
+# set -u fish_user_paths {$HOME}/miniconda2/bin $fish_user_paths
+# source (conda info --root)/etc/fish/conf.d/conda.fish
+
+
